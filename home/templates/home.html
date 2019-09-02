@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="s12 m12 l12 feature-image responsive-img">
+        <div class="col offset-s6 s6 quiz-block">
+            <h1>Find your perfect match!</h1>
+            <p>Take our <a href="#">Coffee Quiz</a></p>
+        </div>       
+
+        </div>
+    </div>
+    
+    
+    
+<div class="row">
+    <div class="col s12 m4 l4">
+      <div class="card">
+        <div class="card-image responsive-img">
+          <img src="https://images.unsplash.com/photo-1517705600644-3f392e2d6439?ixlib=rb-1.2.1&auto=format&fit=crop&w=2468&q=80">
+          <span class="card-title">Coffee</span>
+        </div>
+        <div class="card-content">
+          <p>Only the higest quality beans make the cut for this culture hub.
+           </p>
+                     <p>Extra text</p>
+
+        </div>
+        <div class="card-action">
+          <a href="{% url 'products' %}">Coffee</a>
+        </div>
+      </div>
+    </div>
+    
+     <div class="col s12 m4 l4">
+      <div class="card">
+        <div class="card-image responsive-img">
+          <img src="https://images.unsplash.com/photo-1560116351-4b63abd2044b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80">
+          <span class="card-title">Culture</span>
+        </div>
+        <div class="card-content">
+          <p>Its not just about the coffee, its about the culture too. Check out our meetups
+          and find like minded people who want to be social without the pressure of alcohol</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+    
+     <div class="col s12 m4 l4">
+      <div class="card">
+        <div class="card-image responsive-img">
+          <img src="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80">
+          <span class="card-title">Club</span>
+        </div>
+        <div class="card-content">
+          <p>Sign up today and join the club!</p>
+          <p>Extra text</p>
+        </div>
+        
+        {% if user.is_authenticated %}
+        <div class="card-action">
+          <a href="{% url 'profile' %}">Club</a>
+                  </div>
+          
+          {%  else %}
+        <div class="card-action">
+          <a href="{% url 'registration' %}">Join the club</a>
+                    {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+{% endblock %}

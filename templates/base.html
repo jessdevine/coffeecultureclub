@@ -41,19 +41,20 @@
 <body>
         <!--  Nav Bar  -->
         <nav>
-            <div class="nav-wrapper brown darken-3">
-                <a href="#" class="brand-logo brand-font">Coffee Culture Club</a>
+            <div class="nav-wrapper black">
+                <a href="{% url 'index' %}" class="brand-logo brand-font">C³</a>
 
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    
+                        <li><a href="{% url 'products' %}">Coffee</a></li>
+                        <li><a href="#">Culture</a></li>
                     
                      {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                        <li><a href="{% url 'profile' %}">Club</a></li>
+                        <li><a href="{% url 'logout' %}">Sign Out</a></li>
                     {%  else %}
-                        <li><a href="{% url 'registration' %}">Register</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        <li><a href="{% url 'registration' %}">Join Club</a></li>
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
                         {% if product_count > 0 %}
                          <li><a href="{% url 'view_cart' %}">Cart</a></li>
@@ -96,15 +97,11 @@
 
 
 
-    <div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
-                <button type="search">Search</button>
-            </form>
-        </div>
+
+        
         {% block content %} {% endblock %}
-    </div>
+        
+
     <footer>
         <div class="container">
             <p>Made by Jessica Devine</p>
