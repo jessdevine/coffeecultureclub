@@ -1,0 +1,126 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coffee Culture Club</title>
+
+<!--Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+<!--Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   
+
+<!--Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<!--Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!--Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--Stipe JS -->
+    {% block head_js %}
+    {% endblock head_js %}
+
+</head>
+
+
+
+
+
+
+<!-- -->
+
+
+<body>
+        <!--  Nav Bar  -->
+        <nav>
+            <div class="nav-wrapper brown darken-3">
+                <a href="#" class="brand-logo brand-font">Coffee Culture Club</a>
+
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    
+                    
+                     {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {%  else %}
+                        <li><a href="{% url 'registration' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                        {% if product_count > 0 %}
+                         <li><a href="{% url 'view_cart' %}">Cart</a></li>
+                            {% endif %}
+                </ul>
+
+
+                <ul class="side-nav brown darken-3" id="mobile-demo">
+                     {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {%  else %}
+                        <li><a href="{% url 'registration' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                         <li>
+                        <a href="{% url 'view_cart' %}">
+                            {% if product_count > 0 %}
+                            <label class="">Cart: {{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
+
+ {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+
+
+    <div class="container">
+        <div class="display">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q">
+                <button type="search">Search</button>
+            </form>
+        </div>
+        {% block content %} {% endblock %}
+    </div>
+    <footer>
+        <div class="container">
+            <p>Made by Jessica Devine</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".button-collapse").sideNav();
+            $('.collapsible').collapsible();
+            $('select').material_select();
+            $(".dropdown-button").dropdown();
+        });
+    </script>
+</body>
+
+</html>
