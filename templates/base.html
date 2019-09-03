@@ -86,7 +86,7 @@
 
 
  {% if messages %}
-        <div class="alert alert-success">
+        <div class="white-text">
             <div class="messages">
                 {% for message in messages %}
                     {{ message }}
@@ -113,9 +113,11 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $(".button-collapse").sideNav();
+            $('.parallax').parallax();
             $('.collapsible').collapsible();
             $('select').material_select();
             $(".dropdown-button").dropdown();
+            $('.slider').slider();
         });
     </script>
 </body>
