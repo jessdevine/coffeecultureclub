@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row">
+    <div class="col l8 offset-l2">
+        <div class="card">
+            <div class="card-image">
+
+                {% if post.image %}
+                <img class="img-meetup responsive-img" src="/media/{{ post.image }}"> {% endif %}
+                <span class="card-title">{{ post.title }}</span>
+            </div>
+
+
+            <div class="card-content">
+                <p>{{ post.content }}</p>
+                <p><span class="">Author:</span> {{post.author}}</p>
+                <p><span class="">Published on:</span> {{ post.published_date }} </p>
+                <p><span class="">Views:</span> {{post.views}}</p>
+                <p><span class="">Tag:</span> {{ post.tag }}</p>
+                <p><span class="">Category:</span> {{ post.category }}</p>
+                <p><span class="">Location:</span> {{ post.location }}</p>
+                <a href="{% url 'get_posts' %}" class="btn btn-default">Back to Meetups</a>
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
+           
+          
+            <hr> {% for comment in post.comments.all %}
+            <div class="comment">
+                <div class="date">{{ comment.created_date }}</div>
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.text|linebreaks }}</p>
+
+             </div>
+            {% empty %}
+            <p>No comments here yet :(</p>
+            {% endfor %} 
+
+
+
+         {% if user.is_authenticated %}
+
+            <a class="btn btn-default" href="{% url 'add_comment_to_post' post.id %}">Add comment</a> {% else %}
+            <h4 class "white-text">Please sign-in or register to leave comments</h4>
+            <a class="btn btn-default" href="{% url 'registration' %}">Join</a>
+
+            <a class="btn btn-default" href="{% url 'login' %}">Login</a> 
+            {% endif %}
+
+</div>
+        </div>
+</div>
+</div>
+            {% endblock %}
+
+
+<!-- test -->
+
+
+
+

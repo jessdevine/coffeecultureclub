@@ -47,7 +47,7 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{% url 'products' %}">Coffee</a></li>
-                        <li><a href="#">Culture</a></li>
+                        <li><a href="{% url 'get_posts' %}">Culture</a></li>
                     
                      {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}">Club</a></li>
@@ -62,13 +62,16 @@
                 </ul>
 
 
-                <ul class="side-nav brown darken-3" id="mobile-demo">
+                <ul class="side-nav brown darken-3 white-text" id="mobile-demo">
+                      <li><a href="{% url 'products' %}">Coffee</a></li>
+                        <li><a href="{% url 'get_posts' %}">Culture</a></li>
+                    
                      {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                        <li><a href="{% url 'profile' %}">Club</a></li>
+                        <li><a href="{% url 'logout' %}">Sign Out</a></li>
                     {%  else %}
-                        <li><a href="{% url 'registration' %}">Register</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        <li><a href="{% url 'registration' %}">Join Club</a></li>
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
                          <li>
                         <a href="{% url 'view_cart' %}">
@@ -118,6 +121,7 @@
             $('select').material_select();
             $(".dropdown-button").dropdown();
             $('.slider').slider();
+            $('.fixed-action-btn').floatingActionButton();
         });
     </script>
 </body>

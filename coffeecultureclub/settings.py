@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'home',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +92,11 @@ DATABASES = {
 }
 
 
+#USER NODELS FOR MEETUPS
+
+#AUTH_USER_MODEL = 'core.User'
+
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -135,6 +141,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
