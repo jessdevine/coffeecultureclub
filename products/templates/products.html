@@ -33,10 +33,12 @@
                 <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                 <span class="input-group-btn">
                             <button class="btn btn-success" type="submit">Add</button>
+                                              <a href="{% url 'product_detail' product.id %}"  class="btn btn-default">See Reviews</a>
+
                         </span>
+                        
             </div>
             </form>
-                  <p><a href="{% url 'product_detail' product.id %}"  class="btn btn-default">See more</a></p>
 
         </div>
     </div>

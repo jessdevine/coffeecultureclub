@@ -3,29 +3,62 @@
 
 
 <div class="row">
-    <div class="col l8 offset-l2">
+    <div class="col l8 offset-l2 m12 s12">
         <div class="card">
             <div class="card-image">
                 <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
                 <span class="card-title">{{ product.name }}</span>
             </div>
 
+        <!--Product content -->
 
             <div class="card-content">
                 <p class="product-description">{{ product.description }}</p>
                 <p>{{ product.price }}</p>
+       <p> reviews ({{ review.average_rating}} average rating)</p>
             </div>
-
+            
+            
+         <!--Add to cart -->
 
          <form method="post" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
             <div class="input-group">
                 <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                 <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add</button>
+                <button class="btn btn-success" type="submit">Add</button>
                         </span>
             </div>
             </form>
+            
+            <!-- Reviews -->
+
+
+      <hr> {% for review in product.review.all %}
+            <div class="review">
+                <p>{{ review.user_name }} | {{ review.published_date }}</p>
+                <strong> {{ review.rating }} <i class="material-icons">star</i> {{ review.comment }}</strong>
+                <hr>
+             </div>
+            {% empty %}
+            <p>No reviews here yet :(</p>
+            {% endfor %} 
+            
+
+
+
+         {% if user.is_authenticated %}
+
+            <a class="btn btn-default" href="{% url 'add_review_to_product' product.id %}">Add Review</a> 
+            
+            {% else %}
+            <h4 class "white-text">Please sign-in or register to leave Reviews</h4>
+            <a class="btn btn-default" href="{% url 'registration' %}">Join</a>
+
+            <a class="btn btn-default" href="{% url 'login' %}">Login</a> 
+            {% endif %}
+
+       
         </div>
     </div>
     </div>

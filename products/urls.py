@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', product_detail, name='product_detail'),
 #    url(r'^$', views.review_list, name='review_list'),
 #    url(r'^review/(?P<review_id>[0-9]+)/$', views.review_detail, name='review_detail'),
+    url(r'^(?P<pk>\d+)/reviews/$', add_review_to_product, name='add_review_to_product'),
 ]
