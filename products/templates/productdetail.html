@@ -1,19 +1,9 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
+
 
 <div class="row">
-    <div class="col l10 offset-l1">
-        <form action="{% url 'search' %}" method="get">
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <input type="text" name="q">
-        </form>
-    </div>
-</div>
-
-<!--Product Card test -->
-
-<div class="row">
-    {% for product in products %}
-    <div class="col s12 m4">
+    <div class="col l8 offset-l2">
         <div class="card">
             <div class="card-image">
                 <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
@@ -36,16 +26,8 @@
                         </span>
             </div>
             </form>
-                  <p><a href="{% url 'product_detail' product.id %}"  class="btn btn-default">See more</a></p>
-
         </div>
     </div>
-
-
-
-    {% endfor %}
-</div>
+    </div>
 
 {% endblock %}
-
-<!--Products -->

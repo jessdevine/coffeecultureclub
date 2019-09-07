@@ -37,11 +37,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_page, name="index"),
     url(r'^accounts/', include(urls_accounts)),
-    url(r'^products/', include(urls_products)),
+    url(r'^products/', include(urls_products), name="products"),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^$', RedirectView.as_view(url='posts/')),
     url(r'^posts/', include('posts.urls')),
+#    url(r'^reviews/', include('reviews.urls', namespace="reviews")),
+#    url(r'^review/(?P<review_id>[0-9]+)/$', views.review_detail, name='review_detail'), 
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

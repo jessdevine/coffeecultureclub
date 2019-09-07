@@ -24,7 +24,7 @@ class Post(models.Model):
     location = models.CharField(max_length=255, null=True)
     
     
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
         
