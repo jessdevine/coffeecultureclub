@@ -19,6 +19,12 @@
     height: 700px;
 }
 
+.card-content {
+    min-height: 175px;
+}
+
+
+
 .quiz-header {
     position: absolute;
     z-index: 999;
@@ -45,16 +51,20 @@
 
 
 
-
-
-
-
-
-
-
 body {
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
     background: black;
+}
+
+.white-container {
+    background-color: white;
+    border-radius: 25px;
+    padding-bottom: 15px;
+
+}
+
+.bold {
+    font-weight: bolder;
 }
 
 footer {
