@@ -11,43 +11,41 @@
 
 <!--Product Card test -->
 
-<div class="row">
-    {% for product in products %}
-    <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image">
-                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-                <span class="card-title">{{ product.name }}</span>
-            </div>
+<div class="container">
+    <div class="row white-container">
+
+        {% for product in products %}
+        <div class="col s12 m6 l6 ">
+
+            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+            <span class="product-name">{{ product.name }}</span>
 
 
-            <div class="card-content">
-                <p class="product-description">{{ product.description }}</p>
-                <p>{{ product.price }}</p>
-            </div>
+
+        <p class="product-description">{{ product.description }}</p>
+        <p>{{ product.price }}</p>
 
 
-         <form method="post" action="{% url 'add_to_cart' product.id %}">
-                    {% csrf_token %}
+
+        <form method="post" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
             <div class="input-group">
                 <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                 <span class="input-group-btn">
-                            <button class="btn amber darken-3" type="submit">Add</button>
-                                              <a href="{% url 'product_detail' product.id %}"  class="btn amber darken-3">See Reviews</a>
+                            <button class="waves-effect waves-light btn amber darken-3" type="submit">Add</button>
+                                              <a href="{% url 'product_detail' product.id %}"  class="waves-effect waves-light btn amber darken-3">See Reviews</a>
 
-                        </span>
-                        
+                </span>
             </div>
-            </form>
+        </form>
 
-        </div>
+
     </div>
 
 
-
-    {% endfor %}
+{% endfor %} 
 </div>
-
+</div>
 {% endblock %}
 
 <!--Products -->

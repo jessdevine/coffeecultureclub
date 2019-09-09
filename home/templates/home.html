@@ -8,17 +8,20 @@
       <div class="slider">
     <ul class="slides">
       <li>
-        <img class="responsive-img" src="https://images.unsplash.com/photo-1454329030972-00583f5f051f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1484&q=80"> <!-- random image -->
+        <img class="responsive-img" src="https://images.unsplash.com/photo-1507990718594-150f1f22dc25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"> <!-- random image -->
         <div class="caption center-align">
           <h3>Coffee Culture Club</h3>
           <h5 class="light grey-text text-lighten-3">More than just coffee. Its a community and a movement brought together by a love of coffee.</h5>
+            <a href="{% url 'products' %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">shopping_basket</i>Products</a>
         </div>
       </li>
       <li>
         <img src="https://images.unsplash.com/photo-1482509523773-3cd80d975c52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"> <!-- random image -->
         <div class="caption left-align">
           <h3>Community Coffee Survay</h3>
-          <h5 class="light grey-text text-lighten-3">Take our <a href="#">survay</a> and get 20% off your next order! </h5>
+          <h5 class="light grey-text text-lighten-3">Take our survay and get 20% off your next order! </h5>
+          <a class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">question_answer</i>Survay</a>
+
         </div>
       </li>
       <li>
@@ -28,13 +31,16 @@
         <div class="caption right-align">
           <h3>Join the Club</h3>
           <h5 class="light grey-text text-lighten-3">Sign up for an account and get free shipping off your first order!</h5>
+            <a href="{% url 'registration' %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">insert_emoticon</i>Sign Up</a>
+
         </div>
       </li>
       <li>
-        <img src="https://images.unsplash.com/photo-1519307558758-9fa05af823a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"> <!-- random image -->
+        <img src="https://images.unsplash.com/photo-1426174840074-541ae41efdb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1510&q=80"> <!-- random image -->
         <div class="caption center-align">
           <h3>Meetup with like-minded Induvials</h3>
           <h5 class="light grey-text text-lighten-3">Check out Coffee Culture Club Meets ups near you</h5>
+          <a  href="{% url 'get_posts' %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">person</i>Meetups</a>
         </div>
       </li>
     </ul>
@@ -80,7 +86,7 @@
         </div>
         <div class="card-content">
           
-          <p>Its not all just about coffee. We live, breath and seek culture. Open your mind and meet unqiue new people.
+          <p>Its not all just about coffee. We live and seek culture. Open your mind and meet unqiue new people.
           We believe society needs to break away from what they're used to and experience something completely new, with other people in which
           they can learn and grow with.</p>
           

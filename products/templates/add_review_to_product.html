@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="container">
+<div class="row white-container"> 
+<div class="col s12 m12 l8 offset-l2">
     <h1>New Review</h1>
+    
     <form method="POST" class="product-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Send</button>
     </form>
+</div>
+</div>
+</div>
 {% endblock %}

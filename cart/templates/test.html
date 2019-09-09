@@ -5,11 +5,13 @@
 <div class="container">
     {% for item in cart_items %}
 <div class="row white-container"> 
-<div class="col s12 m12 l8 offset-l2">
+<div class="col l10 offset-l1 m12 s12">
 
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
 
-            <h4>{{ item.product.name }}</h4>
+        <div class="caption">
+            <h3>{{ item.product.name }}</h3>
+            <p class="product-description">{{ item.product.description }}</p>
             <p>{{ item.product.price }}</p>
             <p>
 
@@ -31,24 +33,15 @@
 
 
                     </div>
-                    <button type="submit" class="waves-effect waves-light btn amber darken-3"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
                 </form>
             </p>
-                </div>
-
-            
-            </div>
-    
+        </div>
     {% endfor %}
-    
-    <div class="row white-container"> 
-   <div class="col s12 m12 l8 offset-l2">
     <p>Total</p>
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-    <a href="{% url 'checkout' %}" class="waves-effect waves-light btn amber darken-3" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
 </div>
 </div>
-</div>
-
 
 {% endblock %}

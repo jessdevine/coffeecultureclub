@@ -52,19 +52,19 @@
                         <li><a href="{% url 'get_posts' %}">Culture</a></li>
                     
                      {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}">Club</a></li>
+                        <li><a href="{% url 'profile' %}">Account</a></li>
                         <li><a href="{% url 'logout' %}">Sign Out</a></li>
                     {%  else %}
                         <li><a href="{% url 'registration' %}">Join Club</a></li>
                         <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
                         {% if product_count > 0 %}
-                         <li><a href="{% url 'view_cart' %}">Cart</a></li>
+                        <a href="{% url 'view_cart' %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">shopping_cart</i>{{ product_count }}</a>
                             {% endif %}
                 </ul>
 
 
-                <ul class="side-nav brown darken-3 white-text" id="mobile-demo">
+                <ul class="side-nav amber darken-4" id="mobile-demo">
                       <li><a href="{% url 'products' %}">Coffee</a></li>
                         <li><a href="{% url 'get_posts' %}">Culture</a></li>
                     
@@ -76,11 +76,10 @@
                         <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
                          <li>
-                        <a href="{% url 'view_cart' %}">
-                            {% if product_count > 0 %}
-                            <label class="">Cart: {{ product_count }}</label>
+                             {% if product_count > 0 %}
+                        <a href="{% url 'view_cart' %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">shopping_cart</i>{{ product_count }}</a>
                             {% endif %}
-                        </a>
+                    
                     </li>
                 </ul>
             </div>

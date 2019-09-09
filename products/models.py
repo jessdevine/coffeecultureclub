@@ -2,6 +2,8 @@ from django.db.models import Avg
 from django.db import models
 from django.utils import timezone
 import numpy as np
+from django.contrib.auth.models import User
+
 
 
 # Create your models here.

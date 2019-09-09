@@ -67,6 +67,20 @@ body {
     font-weight: bolder;
 }
 
+.product-name {
+  font-size: large;
+  font-weight: bolder;
+
+}
+
+.input-group {
+    padding-bottom: 20px;
+}
+.container .row .white-container{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 footer {
     margin-top: 40px;
     padding-top: 20px;

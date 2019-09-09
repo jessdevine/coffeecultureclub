@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+
+<div class="container">
+<div class="row white-container"> 
+<div class="col s12 m12 l10 offset-l1">
     <h1>New Meetup</h1>
-    <form class="white-text" method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | as_bootstrap }}
-        <button type="submit" class="btn amber darken-3">Save</button>
+        <button type="submit" class="waves-effect waves-light btn amber darken-3">Save</button>
     </form>
+</div>
+</div>
+</div>
+
 {% endblock %}

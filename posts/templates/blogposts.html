@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block content %} 
-{% for post in posts %}
-
 <!--  Meetup  Card -->
 
 
 <div class="row">
-    <div class="col l8 offset-l2">
-        <div class="card">
+    {% for post in posts %}
+
+    <div class="col s12 m12 l6">
+        <div class="card large">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator img-meetup responsive-img" src="/media/{{ post.image }}">
             </div>
 
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">  
-                     <h3>{{ post.title }}</h3><i class="material-icons right">more_vert</i></span>
+                     <h4>{{ post.title }}</h4><i class="material-icons right">more_vert</i></span>
                      
 
-                <p><a href="{% url 'post_detail' post.id %}" class="btn amber darken-3">See Comments</a></p>
+                <p><a href="{% url 'post_detail' post.id %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">mode_comment</i>See Comments</a></p>
             </div>
 
             <div class="card-reveal">
@@ -29,11 +29,13 @@
                 <p><span class="bold">Views:</span> {{post.views}}</p>
                 <p><span class="bold">Comments:</span> {{ post.comments.count }}</p>
 
-                <p><a href="{% url 'post_detail' post.id %}" class="btn amber darken-3">See Comments</a></p>
+                <p><a href="{% url 'post_detail' post.id %}" class="waves-effect waves-light btn amber darken-3"><i class="material-icons left">mode_comment</i>See Comments</a></p>
 
             </div>
         </div>
     </div>
+    {% endfor %}
+
 </div>
 
 <!-- Floating New Meetup Action  -->
@@ -47,5 +49,4 @@
     </ul>
 </div>
 
-{% endfor %}
 {% endblock %}
